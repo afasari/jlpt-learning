@@ -1,0 +1,62 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import KanjiCard from '../../../components/cards/KanjiCard.astro';
+import SmartLink from '../../../components/SmartLink.astro';
+import { getCollection } from 'astro:content';
+
+const allKanji = await getCollection('kanji');
+const n5Kanji = allKanji.filter(k => k.data.level === 'n5').sort((a, b) => (a.data.jlpt_order || 0) - (b.data.jlpt_order || 0));
+---
+
+<Layout title="JLPT N5 Kanji - Basic Characters">
+  <section class="bg-red-50 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <SmartLink href="/n5" class="text-red-600 hover:text-red-800">N5</SmartLink>
+        <span class="text-gray-400">/</span>
+        <span class="text-gray-700 font-semibold">Kanji</span>
+      </div>
+      <h1 class="text-3xl font-bold mt-4 text-gray-900">N5 Kanji</h1>
+      <p class="text-gray-600 mt-2">Basic kanji for beginners (~100 characters)</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-bold mb-4">Study Tips for N5 Kanji</h2>
+        <ul class="space-y-2 text-gray-700">
+          <li>• Learn kanji in context with vocabulary, not in isolation</li>
+          <li>• Master stroke order - this helps with memory and writing</li>
+          <li>• Focus on readings used in compounds (on-yomi and kun-yomi)</li>
+          <li>• Use mnemonics - create stories to remember characters</li>
+          <li>• Practice writing kanji 10 times each</li>
+          <li>• Learn compounds using each kanji - this reinforces readings and usage</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {n5Kanji.map((kanji) => (
+          <KanjiCard
+            title={kanji.data.title}
+            onyomi={kanji.data.onyomi}
+            kunyomi={kanji.data.kunyomi}
+            meaning={kanji.data.meaning}
+            strokeCount={kanji.data.stroke_count}
+            compounds={kanji.data.compounds}
+            jlptOrder={kanji.data.jlpt_order}
+          />
+        ))}
+      </div>
+
+      {n5Kanji.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-gray-500 text-lg mb-6">No kanji items added yet. Content coming soon!</p>
+          <SmartLink href="/tips" class="inline-block bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors">
+            View Study Tips
+          </SmartLink>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>

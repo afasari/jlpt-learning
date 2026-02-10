@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SmartLink from '../../components/SmartLink.astro';
+
+const level = 'N5';
+const levelColor = 'green';
+const description = 'Beginner - Basic Japanese';
+---
+
+<Layout title={`JLPT ${level} - Complete Study Guide`}>
+  <section class={`bg-${levelColor}-50 py-12`}>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-4">
+        <span class={`bg-${levelColor}-500 text-white px-4 py-2 rounded-lg text-2xl font-bold`}>{level}</span>
+        <div>
+          <h1 class="text-4xl font-bold text-gray-900">{level} Level</h1>
+          <p class={`text-${levelColor}-700`}>{description}</p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        <SmartLink href={`/${level.toLowerCase()}/vocabulary`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-blue-200 text-blue-700">
+          Vocabulary 📚
+        </SmartLink>
+        <SmartLink href={`/${level.toLowerCase()}/kanji`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-red-200 text-red-700">
+          Kanji 漢字
+        </SmartLink>
+        <SmartLink href={`/${level.toLowerCase()}/grammar`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-green-200 text-green-700">
+          Grammar 📝
+        </SmartLink>
+        <SmartLink href={`/${level.toLowerCase()}/tips`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-purple-200 text-purple-700">
+          Study Tips 💡
+        </SmartLink>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">What You'll Learn at {level}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-blue-700 mb-4">Vocabulary</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• ~800 basic words</li>
+            <li>• Greetings and basic expressions</li>
+            <li>• Essential adjectives and verbs</li>
+            <li>• Numbers and time expressions</li>
+            <li>• Family members and basic nouns</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-red-700 mb-4">Kanji</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• ~100 basic kanji characters</li>
+            <li>• Numbers and simple kanji for daily life</li>
+            <li>• Basic readings (on-yomi and kun-yomi)</li>
+            <li>• Stroke order basics</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-green-700 mb-4">Grammar</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Basic sentence structure (subject-object-verb)</li>
+            <li>• Present and past tense</li>
+            <li>• Basic particles (wa, ga, wo, ni)</li>
+            <li>• Copula (desu, da)</li>
+            <li>• Simple verb conjugations</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-purple-700 mb-4">Reading & Listening</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Very short, simple passages</li>
+            <li>• Basic conversations and dialogs</li>
+            <li>• Simple announcements and notices</li>
+            <li>• Basic listening comprehension</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">Getting Started with {level}</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+            <div>
+              <h3 class="font-bold text-lg">Master Hiragana and Katakana</h3>
+              <p class="text-gray-600">Start with the two syllabaries. Practice reading and writing every character.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+            <div>
+              <h3 class="font-bold text-lg">Learn Basic Vocabulary First</h3>
+              <p class="text-gray-600">Focus on high-frequency words. Learn greetings, numbers, days of week, and everyday items.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+            <div>
+              <h3 class="font-bold text-lg">Practice Simple Sentences</h3>
+              <p class="text-gray-600">Learn basic sentence patterns. Practice making your own simple sentences about daily life.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+            <div>
+              <h3 class="font-bold text-lg">Learn Essential Grammar</h3>
+              <p class="text-gray-600">Master basic particles and sentence structure. Focus on present and past tense of verbs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
