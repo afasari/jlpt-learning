@@ -1,4 +1,6 @@
 ---
+import SmartLink from './SmartLink.astro';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -15,29 +17,29 @@ const currentYear = new Date().getFullYear();
       <div>
         <h4 class="font-semibold mb-3">Study Materials</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="/n5/vocabulary" class="hover:text-white">N5 Vocabulary</a></li>
-          <li><a href="/n5/kanji" class="hover:text-white">N5 Kanji</a></li>
-          <li><a href="/n5/grammar" class="hover:text-white">N5 Grammar</a></li>
+          <li><SmartLink href="/n5/vocabulary" class="hover:text-white">N5 Vocabulary</SmartLink></li>
+          <li><SmartLink href="/n5/kanji" class="hover:text-white">N5 Kanji</SmartLink></li>
+          <li><SmartLink href="/n5/grammar" class="hover:text-white">N5 Grammar</SmartLink></li>
         </ul>
       </div>
 
       <div>
         <h4 class="font-semibold mb-3">Resources</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="/roadmap" class="hover:text-white">Learning Roadmap</a></li>
-          <li><a href="/resources" class="hover:text-white">Books & Websites</a></li>
-          <li><a href="/cheatsheets" class="hover:text-white">Cheatsheets</a></li>
-          <li><a href="/tips" class="hover:text-white">Study Tips</a></li>
+          <li><SmartLink href="/roadmap" class="hover:text-white">Learning Roadmap</SmartLink></li>
+          <li><SmartLink href="/resources" class="hover:text-white">Books & Websites</SmartLink></li>
+          <li><SmartLink href="/cheatsheets" class="hover:text-white">Cheatsheets</SmartLink></li>
+          <li><SmartLink href="/tips" class="hover:text-white">Study Tips</SmartLink></li>
         </ul>
       </div>
 
       <div>
         <h4 class="font-semibold mb-3">Quick Links</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="/n4" class="hover:text-white">N4 Level</a></li>
-          <li><a href="/n3" class="hover:text-white">N3 Level</a></li>
-          <li><a href="/n2" class="hover:text-white">N2 Level</a></li>
-          <li><a href="/n1" class="hover:text-white">N1 Level</a></li>
+          <li><SmartLink href="/n4" class="hover:text-white">N4 Level</SmartLink></li>
+          <li><SmartLink href="/n3" class="hover:text-white">N3 Level</SmartLink></li>
+          <li><SmartLink href="/n2" class="hover:text-white">N2 Level</SmartLink></li>
+          <li><SmartLink href="/n1" class="hover:text-white">N1 Level</SmartLink></li>
         </ul>
       </div>
     </div>

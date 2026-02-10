@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SmartLink from '../components/SmartLink.astro';
 ---
 
 <Layout title="JLPT Learning Hub - Master Japanese from N5 to N1">
@@ -10,12 +11,12 @@ import Layout from '../layouts/Layout.astro';
         Comprehensive resource for mastering Japanese from N5 to N1
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/roadmap" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+        <SmartLink href="/roadmap" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
           Start Learning
-        </a>
-        <a href="/n4" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+        </SmartLink>
+        <SmartLink href="/n4" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
           Continue from N4
-        </a>
+        </SmartLink>
       </div>
     </div>
   </section>
@@ -32,14 +33,14 @@ import Layout from '../layouts/Layout.astro';
           { level: 'N2', color: 'red', desc: 'Upper intermediate - News, business' },
           { level: 'N1', color: 'purple', desc: 'Advanced - Native-level fluency' },
         ].map((item) => (
-          <a
+          <SmartLink
             href={`/${item.level.toLowerCase()}`}
             class={`bg-${item.color}-50 border-2 border-${item.color}-200 rounded-lg p-6 text-center hover:shadow-lg transition-all hover:scale-105`}
           >
             <div class={`text-4xl font-bold text-${item.color}-600 mb-2`}>{item.level}</div>
             <div class={`text-${item.color}-800 font-medium mb-1`}>{item.desc.split(' - ')[0]}</div>
             <div class={`text-${item.color}-600 text-sm`}>{item.desc.split(' - ')[1]}</div>
-          </a>
+          </SmartLink>
         ))}
       </div>
     </div>
@@ -60,14 +61,14 @@ import Layout from '../layouts/Layout.astro';
           { title: 'Websites', icon: '🌐', desc: 'Online resources', href: '/resources' },
           { title: 'Tips', icon: '💡', desc: 'Study strategies', href: '/tips' },
         ].map((item) => (
-          <a
+          <SmartLink
             href={item.href}
             class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow"
           >
             <div class="text-4xl mb-3">{item.icon}</div>
             <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
             <p class="text-gray-600 text-sm">{item.desc}</p>
-          </a>
+          </SmartLink>
         ))}
       </div>
     </div>

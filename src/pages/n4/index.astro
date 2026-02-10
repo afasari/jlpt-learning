@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SmartLink from '../../components/SmartLink.astro';
 
 const level = 'N4';
 const levelColor = 'yellow';
@@ -18,18 +19,18 @@ const description = 'Elementary - Basic conversations and everyday expressions';
       </div>
 
       <div class="mt-6 flex flex-wrap gap-2">
-        <a href={`/${level.toLowerCase()}/vocabulary`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-blue-200 text-blue-700">
+        <SmartLink href={`/${level.toLowerCase()}/vocabulary`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-blue-200 text-blue-700">
           Vocabulary 📚
-        </a>
-        <a href={`/${level.toLowerCase()}/kanji`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-red-200 text-red-700">
+        </SmartLink>
+        <SmartLink href={`/${level.toLowerCase()}/kanji`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-red-200 text-red-700">
           Kanji 漢字
-        </a>
-        <a href={`/${level.toLowerCase()}/grammar`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-green-200 text-green-700">
+        </SmartLink>
+        <SmartLink href={`/${level.toLowerCase()}/grammar`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-green-200 text-green-700">
           Grammar 📝
-        </a>
-        <a href={`/${level.toLowerCase()}/tips`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-purple-200 text-purple-700">
+        </SmartLink>
+        <SmartLink href={`/${level.toLowerCase()}/tips`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-purple-200 text-purple-700">
           Study Tips 💡
-        </a>
+        </SmartLink>
       </div>
     </div>
   </section>

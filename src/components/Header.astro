@@ -1,4 +1,6 @@
 ---
+import SmartLink from './SmartLink.astro';
+
 const navItems = [
   { label: 'Roadmap', href: '/roadmap' },
   { label: 'Resources', href: '/resources' },
@@ -10,27 +12,27 @@ const navItems = [
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <a href="/" class="flex items-center gap-2">
+      <SmartLink href="/" class="flex items-center gap-2">
         <span class="text-2xl font-bold bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">
           JLPT
         </span>
         <span class="text-gray-600 font-medium">Hub</span>
-      </a>
+      </SmartLink>
 
       <nav class="hidden md:flex gap-6">
         {navItems.map((item) => (
-          <a
+          <SmartLink
             href={item.href}
             class="text-gray-600 hover:text-gray-900 font-medium transition-colors"
           >
             {item.label}
-          </a>
+          </SmartLink>
         ))}
       </nav>
 
       <div class="flex gap-2">
         {['N5', 'N4', 'N3', 'N2', 'N1'].map((level) => (
-          <a
+          <SmartLink
             href={`/${level.toLowerCase()}`}
             class={`px-2 py-1 text-xs font-bold rounded ${
               level === 'N5' ? 'bg-green-100 text-green-800' :
@@ -41,7 +43,7 @@ const navItems = [
             }`}
           >
             {level}
-          </a>
+          </SmartLink>
         ))}
       </div>
     </div>
