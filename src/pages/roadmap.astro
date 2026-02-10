@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="JLPT Learning Roadmap - Study Plans for All Levels">
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">Learning Roadmaps</h1>
+      <p class="text-xl text-blue-100">Structured study plans from beginner to advanced</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">Choose Your Starting Point</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            title: 'Complete Beginner',
+            duration: '6-12 months',
+            levels: 'N5 → N4',
+            desc: 'Start from absolute zero. Learn hiragana, katakana, basic grammar, and essential vocabulary.',
+            color: 'green'
+          },
+          {
+            title: 'N4 → N3',
+            duration: '3-6 months',
+            levels: 'N4 → N3',
+            desc: 'Bridge to intermediate level. Focus on real-life conversations and more complex grammar.',
+            color: 'orange'
+          },
+          {
+            title: 'N3 → N2',
+            duration: '6-12 months',
+            levels: 'N3 → N2',
+            desc: 'Upper intermediate preparation. Study for business, news, and academic content.',
+            color: 'red'
+          },
+        ].map((plan) => (
+          <div class={`bg-white rounded-lg shadow-md p-6 border-t-4 border-${plan.color}-500`}>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{plan.title}</h3>
+            <p class={`text-${plan.color}-600 font-semibold mb-3`}>{plan.duration} • {plan.levels}</p>
+            <p class="text-gray-600">{plan.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Weekly Study Schedule Example</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b-2 border-gray-200">
+                <th class="text-left py-3 px-4 font-bold text-gray-900">Day</th>
+                <th class="text-left py-3 px-4 font-bold text-gray-900">Vocabulary</th>
+                <th class="text-left py-3 px-4 font-bold text-gray-900">Kanji</th>
+                <th class="text-left py-3 px-4 font-bold text-gray-900">Grammar</th>
+                <th class="text-left py-3 px-4 font-bold text-gray-900">Practice</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { day: 'Monday', vocab: '30 words', kanji: '10 new kanji', grammar: '2 patterns', practice: 'Anki review' },
+                { day: 'Tuesday', vocab: '30 words', kanji: '10 new kanji', grammar: '2 patterns', practice: 'Reading practice' },
+                { day: 'Wednesday', vocab: '30 words', kanji: '10 new kanji', grammar: '2 patterns', practice: 'Listening' },
+                { day: 'Thursday', vocab: '30 words', kanji: '10 new kanji', grammar: '2 patterns', practice: 'Anki review' },
+                { day: 'Friday', vocab: '30 words', kanji: '10 new kanji', grammar: '2 patterns', practice: 'Writing practice' },
+                { day: 'Saturday', vocab: 'Review', kanji: 'Review', grammar: 'Review', practice: 'Practice test' },
+                { day: 'Sunday', vocab: 'Rest/Light review', kanji: '', grammar: '', practice: 'Immersion' },
+              ].map((row) => (
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 px-4 font-semibold text-gray-900">{row.day}</td>
+                  <td class="py-3 px-4 text-blue-600">{row.vocab}</td>
+                  <td class="py-3 px-4 text-red-600">{row.kanji}</td>
+                  <td class="py-3 px-4 text-green-600">{row.grammar}</td>
+                  <td class="py-3 px-4 text-purple-600">{row.practice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">3-Month Intensive Plan (N4 → N3)</h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            month: 'Month 1: Foundation',
+            tasks: [
+              'Review all N4 vocabulary and grammar',
+              'Start N3 vocabulary (aim for 500 words)',
+              'Learn 100 new N3 kanji',
+              'Study basic N3 grammar patterns (20 points)',
+              'Daily: 30 min vocabulary, 30 min grammar, 30 min reading'
+            ]
+          },
+          {
+            month: 'Month 2: Expansion',
+            tasks: [
+              'Continue N3 vocabulary (total 1000 words)',
+              'Learn 100 more N3 kanji',
+              'Study intermediate N3 grammar (30 points)',
+              'Start reading N3-level materials',
+              'Daily: Add 30 min listening practice'
+            ]
+          },
+          {
+            month: 'Month 3: Practice & Polish',
+            tasks: [
+              'Complete remaining N3 vocabulary (1500 total)',
+              'Learn remaining N3 kanji (370 total)',
+              'Study advanced N3 grammar (20 points)',
+              'Take practice tests weekly',
+              'Focus on weak areas'
+            ]
+          },
+        ].map((month) => (
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{month.month}</h3>
+            <ul class="space-y-2 text-gray-700">
+              {month.tasks.map((task) => (
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-500 mt-1">•</span>
+                  {task}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8 mt-12">Timeline by Level</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="relative">
+          <div class="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-green-500 via-yellow-500 via-orange-500 via-red-500 to-purple-500"></div>
+
+          {[
+            { level: 'N5', time: '3-4 months', desc: 'Basic Japanese, greetings, simple sentences' },
+            { level: 'N4', time: '6-12 months', desc: 'Elementary, daily conversations, basic kanji' },
+            { level: 'N3', time: '6-12 months', desc: 'Intermediate, understand news, discuss topics' },
+            { level: 'N2', time: '12-18 months', desc: 'Upper intermediate, business Japanese' },
+            { level: 'N1', time: '18-24 months', desc: 'Advanced, native-level fluency' },
+          ].map((item, index) => (
+            <div class="relative pl-12 pb-8 last:pb-0">
+              <div class={`absolute left-2 w-5 h-5 rounded-full border-4 border-white ${
+                index === 0 ? 'bg-green-500' :
+                index === 1 ? 'bg-yellow-500' :
+                index === 2 ? 'bg-orange-500' :
+                index === 3 ? 'bg-red-500' :
+                'bg-purple-500'
+              }`}></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-lg">{item.level}</span>
+                  <span class="text-gray-500">{item.time}</span>
+                </div>
+                <p class="text-gray-600 mt-1">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

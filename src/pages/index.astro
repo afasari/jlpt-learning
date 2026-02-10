@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="JLPT Learning Hub - Master Japanese from N5 to N1">
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">JLPT Learning Hub</h1>
+      <p class="text-xl md:text-2xl mb-8 text-blue-100">
+        Comprehensive resource for mastering Japanese from N5 to N1
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/roadmap" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+          Start Learning
+        </a>
+        <a href="/n4" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+          Continue from N4
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">Choose Your Level</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        {[
+          { level: 'N5', color: 'green', desc: 'Beginner - Basic Japanese' },
+          { level: 'N4', color: 'yellow', desc: 'Elementary - Simple conversations' },
+          { level: 'N3', color: 'orange', desc: 'Intermediate - Daily situations' },
+          { level: 'N2', color: 'red', desc: 'Upper intermediate - News, business' },
+          { level: 'N1', color: 'purple', desc: 'Advanced - Native-level fluency' },
+        ].map((item) => (
+          <a
+            href={`/${item.level.toLowerCase()}`}
+            class={`bg-${item.color}-50 border-2 border-${item.color}-200 rounded-lg p-6 text-center hover:shadow-lg transition-all hover:scale-105`}
+          >
+            <div class={`text-4xl font-bold text-${item.color}-600 mb-2`}>{item.level}</div>
+            <div class={`text-${item.color}-800 font-medium mb-1`}>{item.desc.split(' - ')[0]}</div>
+            <div class={`text-${item.color}-600 text-sm`}>{item.desc.split(' - ')[1]}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">Study Resources</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { title: 'Roadmaps', icon: '🗺️', desc: 'Structured learning paths', href: '/roadmap' },
+          { title: 'Vocabulary', icon: '📚', desc: 'JLPT word lists', href: '/resources' },
+          { title: 'Kanji', icon: '漢', desc: 'Character mastery', href: '/resources' },
+          { title: 'Grammar', icon: '📝', desc: 'Grammar explanations', href: '/resources' },
+          { title: 'Cheatsheets', icon: '📋', desc: 'Quick reference guides', href: '/cheatsheets' },
+          { title: 'Books', icon: '📖', desc: 'Recommended textbooks', href: '/resources' },
+          { title: 'Websites', icon: '🌐', desc: 'Online resources', href: '/resources' },
+          { title: 'Tips', icon: '💡', desc: 'Study strategies', href: '/tips' },
+        ].map((item) => (
+          <a
+            href={item.href}
+            class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow"
+          >
+            <div class="text-4xl mb-3">{item.icon}</div>
+            <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">Test Sections</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { name: 'Vocabulary', color: 'blue', items: 'Kanji reading, word forms, context' },
+          { name: 'Grammar', color: 'green', items: 'Grammar patterns, sentence structure' },
+          { name: 'Reading', color: 'purple', items: 'Comprehension, various texts' },
+          { name: 'Listening', color: 'orange', items: 'Audio, conversations, responses' },
+        ].map((section) => (
+          <div class={`bg-${section.color}-50 border border-${section.color}-200 rounded-lg p-6`}>
+            <h3 class={`text-xl font-bold text-${section.color}-700 mb-2`}>{section.name}</h3>
+            <p class={`text-${section.color}-600`}>{section.items}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

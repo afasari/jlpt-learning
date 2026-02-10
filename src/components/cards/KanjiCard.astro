@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  onyomi?: string;
+  kunyomi?: string;
+  meaning: string;
+  strokeCount?: number;
+  compounds?: Array<{ word: string; reading: string; meaning: string }>;
+  jlptOrder?: number;
+}
+
+const { title, onyomi, kunyomi, meaning, strokeCount, compounds, jlptOrder } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
+  <div class="flex items-start justify-between mb-4">
+    <h3 class="text-6xl font-bold text-red-600">{title}</h3>
+    {jlptOrder && <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">#{jlptOrder}</span>}
+  </div>
+
+  <div class="space-y-2 mb-4">
+    {onyomi && <div class="text-gray-700"><span class="font-medium text-red-500">ON:</span> {onyomi}</div>}
+    {kunyomi && <div class="text-gray-700"><span class="font-medium text-red-500">KUN:</span> {kunyomi}</div>}
+    {strokeCount && <div class="text-gray-700"><span class="font-medium text-red-500">Strokes:</span> {strokeCount}</div>}
+    <div class="text-gray-800 text-lg">{meaning}</div>
+  </div>
+
+  {compounds && compounds.length > 0 && (
+    <div class="border-t border-gray-200 pt-4">
+      <h4 class="font-semibold text-gray-900 mb-2">Compounds</h4>
+      <div class="space-y-2">
+        {compounds.map((compound) => (
+          <div class="bg-gray-50 rounded p-2">
+            <span class="font-medium text-gray-900">{compound.word}</span>
+            <span class="text-gray-600 ml-2">({compound.reading})</span>
+            <div class="text-gray-500 text-sm">{compound.meaning}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</div>

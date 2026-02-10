@@ -1,0 +1,314 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allTips = await getCollection('tips');
+const tipsByCategory = allTips.reduce((acc, tip) => {
+  if (!acc[tip.data.category]) acc[tip.data.category] = [];
+  acc[tip.data.category].push(tip);
+  return acc;
+}, {} as Record<string, typeof allTips>);
+---
+
+<Layout title="JLPT Study Tips - Strategies for Success">
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">Study Tips & Strategies</h1>
+      <p class="text-xl text-blue-100">Expert advice for mastering Japanese and passing the JLPT</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">General Study Strategies</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Consistency is Key</h3>
+          <p class="text-gray-600 mb-3">Study every day, even if it's just 15-30 minutes. Short, consistent study sessions are more effective than cramming.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Set a specific time each day for Japanese study</li>
+            <li>• Use habit tracking to stay accountable</li>
+            <li>• Start small and build up gradually</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Spaced Repetition</h3>
+          <p class="text-gray-600 mb-3">Use spaced repetition systems like Anki to memorize vocabulary and kanji efficiently.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Review cards just before forgetting them</li>
+            <li>• Don't skip reviews - consistency matters</li>
+            <li>• Add new cards gradually (10-20 per day)</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Learn in Context</h3>
+          <p class="text-gray-600 mb-3">Don't memorize isolated words or kanji. Always learn vocabulary in example sentences.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Learn words with example sentences</li>
+            <li>• Study kanji with vocabulary compounds</li>
+            <li>• Practice grammar with real situations</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Practice All Skills</h3>
+          <p class="text-gray-600 mb-3">Don't neglect any skill. The JLPT tests all four: vocabulary, grammar, reading, and listening.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Balance your study across all sections</li>
+            <li>• Practice listening daily even for 10 minutes</li>
+            <li>• Read graded readers and easy news</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Vocabulary Tips</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-blue-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-blue-700 mb-3">Use Mnemonics</h3>
+          <p class="text-gray-700 mb-3">Create memorable stories for difficult words. The crazier the story, the better you'll remember.</p>
+          <p class="text-sm text-blue-600">Example: "benkyou" (study) = "Benny and Kyousuke study together"</p>
+        </div>
+
+        <div class="bg-blue-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-blue-700 mb-3">Study Word Families</h3>
+          <p class="text-gray-700 mb-3">Learn related words together. This helps you understand connections and expand your vocabulary faster.</p>
+          <p class="text-sm text-blue-600">Example: 学 (study): 学生、勉強、大学</p>
+        </div>
+
+        <div class="bg-blue-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-blue-700 mb-3">Focus on JLPT Frequency</h3>
+          <p class="text-gray-700 mb-3">Study the most common JLPT words first. Many textbooks list vocabulary by frequency.</p>
+          <p class="text-sm text-blue-600">Use Tango series or frequency-based Anki decks</p>
+        </div>
+
+        <div class="bg-blue-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-blue-700 mb-3">Learn Readings with Words</h3>
+          <p class="text-gray-700 mb-3">Don't just memorize on-yomi and kun-yomi. Learn readings through actual vocabulary.</p>
+          <p class="text-sm text-blue-600">Each kanji has multiple readings - learn them in context</p>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Kanji Tips</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-red-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-red-700 mb-3">Learn Radicals</h3>
+          <p class="text-gray-700 mb-3">Understanding radicals (the components of kanji) helps you remember meanings and guess readings.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Learn the 214 basic radicals</li>
+            <li>• Recognize patterns in kanji composition</li>
+            <li>• Use radicals to look up kanji in dictionaries</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-red-700 mb-3">Write Kanji</h3>
+          <p class="text-gray-700 mb-3">Physically writing kanji helps with memory and recognition. Focus on stroke order.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Practice stroke order carefully</li>
+            <li>• Write new kanji at least 10 times</li>
+            <li>• Use grid paper for proper balance</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-red-700 mb-3">Use Kanji with Mnemonics</h3>
+          <p class="text-gray-700 mb-3">Break kanji into parts and create stories. This is the most effective method for beginners.</p>
+          <p class="text-sm text-red-600">Example: 見 (see) = 目 (eye) + 儿 (legs) = "eye on legs to see"</p>
+        </div>
+
+        <div class="bg-red-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-red-700 mb-3">Learn Through Vocabulary</h3>
+          <p class="text-gray-700 mb-3">Don't study kanji in isolation. Always learn 2-3 vocabulary words that use each kanji.</p>
+          <p class="text-sm text-red-600">This teaches you actual usage and reinforces readings</p>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Grammar Tips</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-green-700 mb-3">Understand Usage, Not Just Rules</h3>
+          <p class="text-gray-700 mb-3">Focus on when and why to use each grammar point, not just the mechanical rules.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Study example sentences thoroughly</li>
+            <li>• Learn the nuance and politeness level</li>
+            <li>• Practice creating your own sentences</li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-green-700 mb-3">Group Similar Grammar</h3>
+          <p class="text-gray-700 mb-3">Compare and contrast similar grammar points. Understanding differences is key to mastering nuances.</p>
+          <p class="text-sm text-green-600">Example: は vs が, に vs で vs へ</p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-green-700 mb-3">Review Regularly</h3>
+          <p class="text-gray-700 mb-3">Grammar needs constant reinforcement. Keep a notebook of patterns and review often.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Make flashcards for grammar patterns</li>
+            <li>• Review grammar from previous levels</li>
+            <li>• Keep a grammar journal</li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-green-700 mb-3">Practice with Output</h3>
+          <p class="text-gray-700 mb-3">Don't just read grammar. Use it in writing and speaking to reinforce learning.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Write journal entries in Japanese</li>
+            <li>• Talk to yourself using new grammar</li>
+            <li>• Use language exchange apps</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Reading Section Tips</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-purple-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-purple-700 mb-3">Skim First, Read Details Later</h3>
+          <p class="text-gray-700 mb-3">Get an overview of the passage before diving into details. Look at titles, headings, and first sentences.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Read the questions before the text</li>
+            <li>• Identify the main idea quickly</li>
+            <li>• Don't get stuck on unknown kanji</li>
+          </ul>
+        </div>
+
+        <div class="bg-purple-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-purple-700 mb-3">Use Graded Readers</h3>
+          <p class="text-gray-700 mb-3">Build reading confidence with materials at your level. Graded readers use controlled vocabulary.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Start with N5/N4 graded readers</li>
+            <li>• Read NHK Easy News daily</li>
+            <li>• Progress to native materials gradually</li>
+          </ul>
+        </div>
+
+        <div class="bg-purple-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-purple-700 mb-3">Practice Time Management</h3>
+          <p class="text-gray-700 mb-3">The reading section is timed. Practice completing passages within time limits.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Spend about 3-5 minutes per passage</li>
+            <li>• Don't spend too long on one question</li>
+            <li>• Skip difficult questions and come back</li>
+          </ul>
+        </div>
+
+        <div class="bg-purple-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-purple-700 mb-3">Learn from Context</h3>
+          <p class="text-gray-700 mb-3">Don't use a dictionary for every word. Learn to guess meanings from context.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Use surrounding words to guess meaning</li>
+            <li>• Look for repeated vocabulary</li>
+            <li>• Focus on understanding the overall message</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Listening Section Tips</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-orange-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-orange-700 mb-3">Listen Every Day</h3>
+          <p class="text-gray-700 mb-3">Daily exposure to Japanese audio trains your ear and improves comprehension.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Japanese podcasts (even as background)</li>
+            <li>• Anime/drama with Japanese audio</li>
+            <li>• Japanese music and radio</li>
+          </ul>
+        </div>
+
+        <div class="bg-orange-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-orange-700 mb-3">Active Listening</h3>
+          <p class="text-gray-700 mb-3">Don't just listen passively. Focus and try to understand the content.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Take notes while listening</li>
+            <li>• Pause and replay difficult parts</li>
+            <li>• Try to summarize what you heard</li>
+          </ul>
+        </div>
+
+        <div class="bg-orange-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-orange-700 mb-3">Shadowing Practice</h3>
+          <p class="text-gray-700 mb-3">Repeat what you hear immediately, mimicking the speed and intonation.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Listen to short audio clips</li>
+            <li>• Repeat immediately after hearing</li>
+            <li>• Match the speaker's pace</li>
+          </ul>
+        </div>
+
+        <div class="bg-orange-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-orange-700 mb-3">Note-taking Strategies</h3>
+          <p class="text-gray-700 mb-3">During the test, take quick notes on key information: who, what, when, where.</p>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• Note numbers, names, and times</li>
+            <li>• Write down alternatives mentioned</li>
+            <li>• Use abbreviations and symbols</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Test-Taking Strategies</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+            <div>
+              <h4 class="font-bold text-lg">Answer Every Question</h4>
+              <p class="text-gray-600">There is no penalty for wrong answers. Never leave a question blank.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+            <div>
+              <h4 class="font-bold text-lg">Use Process of Elimination</h4>
+              <p class="text-gray-600">Cross out obviously wrong answers to improve your odds on tough questions.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+            <div>
+              <h4 class="font-bold text-lg">Manage Your Time</h4>
+              <p class="text-gray-600">Don't spend too long on one question. If stuck, move on and come back later.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+            <div>
+              <h4 class="font-bold text-lg">Practice with Past Tests</h4>
+              <p class="text-gray-600">Take actual JLPT practice tests to get familiar with the format and difficulty.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div>
+            <div>
+              <h4 class="font-bold text-lg">Read Instructions Carefully</h4>
+              <p class="text-gray-600">Make sure you understand what each question is asking before answering.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">6</div>
+            <div>
+              <h4 class="font-bold text-lg">Trust Your First Instinct</h4>
+              <p class="text-gray-600">Don't second-guess yourself. Your first answer is usually correct.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

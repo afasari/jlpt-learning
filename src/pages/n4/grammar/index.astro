@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import GrammarCard from '../../../components/cards/GrammarCard.astro';
+import { getCollection } from 'astro:content';
+
+const allGrammar = await getCollection('grammar');
+const n4Grammar = allGrammar.filter(g => g.data.level === 'n4').sort((a, b) => (a.data.jlpt_order || 0) - (b.data.jlpt_order || 0));
+---
+
+<Layout title="JLPT N4 Grammar - Complete Grammar Points">
+  <section class="bg-green-50 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <a href="/n4" class="text-green-600 hover:text-green-800">N4</a>
+        <span class="text-gray-400">/</span>
+        <span class="text-gray-700 font-semibold">Grammar</span>
+      </div>
+      <h1 class="text-3xl font-bold mt-4 text-gray-900">N4 Grammar</h1>
+      <p class="text-gray-600 mt-2">Complete grammar list for JLPT N4 level</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-bold mb-4">Study Tips for Grammar</h2>
+        <ul class="space-y-2 text-gray-700">
+          <li>• Understand the meaning and usage of each pattern</li>
+          <li>• Study example sentences in context</li>
+          <li>• Practice by making your own sentences</li>
+          <li>• Group similar grammar patterns together</li>
+          <li>• Review regularly to maintain retention</li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        {n4Grammar.map((grammar) => (
+          <GrammarCard
+            title={grammar.data.title}
+            category={grammar.data.category}
+            difficulty={grammar.data.difficulty}
+          >
+            <div set:html={grammar.body} />
+          </GrammarCard>
+        ))}
+      </div>
+
+      {n4Grammar.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-gray-500 text-lg">No grammar items added yet. Content coming soon!</p>
+          <a href="/resources" class="inline-block mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+            View Resources
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>

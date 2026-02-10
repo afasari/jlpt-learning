@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResourceCard from '../components/cards/ResourceCard.astro';
+import { getCollection } from 'astro:content';
+
+const books = await getCollection('books');
+const websites = await getCollection('websites');
+const ankiDecks = await getCollection('anki-decks');
+const tools = await getCollection('tools');
+---
+
+<Layout title="JLPT Resources - Books, Websites, Tools & More">
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">JLPT Resources</h1>
+      <p class="text-xl text-blue-100">Curated collection of the best study materials</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">Books</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <ResourceCard
+          title="Genki I & II"
+          url="https://genki.japantimes.co.jp/"
+          description="The gold standard for beginner Japanese learners. Covers N5 and most of N4."
+          rating={5}
+          levels={['n5', 'n4']}
+        />
+        <ResourceCard
+          title="Tobira Gateway to Advanced Japanese"
+          url="https://tobira.web.fc2.com/"
+          description="Excellent textbook for N3 to N2 transition. Focuses on authentic content."
+          rating={5}
+          levels={['n3', 'n2']}
+        />
+        <ResourceCard
+          title="Sou Matome Series"
+          url="#"
+          description="Comprehensive series for all levels with focused practice in each subject."
+          rating={5}
+          levels={['n5', 'n4', 'n3', 'n2', 'n1']}
+        />
+        <ResourceCard
+          title="Try! Japanese Grammar"
+          url="#"
+          description="Grammar-focused books with clear explanations and abundant practice exercises."
+          rating={4}
+          levels={['n5', 'n4', 'n3', 'n2', 'n1']}
+        />
+        <ResourceCard
+          title="Kanji Master Series"
+          url="#"
+          description="Systematic kanji learning with detailed explanations and compounds."
+          rating={4}
+          levels={['n5', 'n4', 'n3', 'n2', 'n1']}
+        />
+        <ResourceCard
+          title="Shin Kanzen Master"
+          url="#"
+          description="Advanced series for N1 and N2 with challenging practice problems."
+          rating={5}
+          levels={['n1', 'n2']}
+        />
+      </div>
+
+      {books.map((book) => (
+        <ResourceCard
+          title={book.data.title}
+          url={book.data.link}
+          description={`${book.data.author ? `by ${book.data.author} - ` : ''}${book.data.category}`}
+          rating={book.data.rating}
+          levels={book.data.levels}
+        />
+      ))}
+
+      <h2 class="text-3xl font-bold mb-8 mt-12">Websites & Online Resources</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <ResourceCard
+          title="NHK Easy News"
+          url="https://www3.nhk.or.jp/news/easy/"
+          description="News written in simple Japanese, perfect for N3-N4 practice."
+          rating={5}
+          levels={['n4', 'n3']}
+          free={true}
+        />
+        <ResourceCard
+          title="Tae Kim's Guide"
+          url="https://guide.japanesewithanime.com/"
+          description="Comprehensive free grammar guide covering N5-N2 material."
+          rating={5}
+          levels={['n5', 'n4', 'n3']}
+          free={true}
+        />
+        <ResourceCard
+          title="JLPT Sensei"
+          url="https://jlptsensei.com/"
+          description="Practice tests, grammar explanations, and vocabulary for all levels."
+          rating={4}
+          levels={['n5', 'n4', 'n3', 'n2', 'n1']}
+          free={true}
+        />
+        <ResourceCard
+          title="Erin's Challenge"
+          url="https://www.erin.jlpt.jp/"
+          description="Video-based learning from the Japan Foundation. Excellent for listening."
+          rating={5}
+          levels={['n5', 'n4', 'n3']}
+          free={true}
+        />
+        <ResourceCard
+          title="JLPT Official Website"
+          url="https://www.jlpt.jp/"
+          description="Official information about test dates, locations, and sample questions."
+          rating={5}
+          levels={['n5', 'n4', 'n3', 'n2', 'n1']}
+          free={true}
+        />
+        <ResourceCard
+          title="Ankiweb"
+          url="https://apps.ankiweb.net/"
+          description="The best spaced repetition software. Essential for vocabulary memorization."
+          rating={5}
+          levels={['n5', 'n4', 'n3', 'n2', 'n1']}
+          free={true}
+        />
+        <ResourceCard
+          title="Japanese Ammo with Misa"
+          url="https://www.youtube.com/c/JapaneseAmmowithMisa"
+          description="YouTube channel with excellent grammar and vocabulary explanations."
+          rating={5}
+          levels={['n5', 'n4', 'n3']}
+          free={true}
+        />
+        <ResourceCard
+          title="Wanikani"
+          url="https://www.wanikani.com/"
+          description="Mnemonics-based kanji and vocabulary learning. Covers N5-N2."
+          rating={5}
+          levels={['n5', 'n4', 'n3', 'n2']}
+        />
+        <ResourceCard
+          title="Maggiesensei"
+          url="https://www.maggiesensei.com/"
+          description="Detailed grammar explanations with example sentences and notes."
+          rating={4}
+          levels={['n4', 'n3', 'n2']}
+          free={true}
+        />
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8 mt-12">Anki Decks</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <ResourceCard
+          title="JLPT Tango N5"
+          url="#"
+          description="Vocabulary deck based on the Tango N5 1000 words book."
+          rating={5}
+          levels={['n5']}
+        />
+        <ResourceCard
+          title="JLPT Tango N4"
+          url="#"
+          description="Vocabulary deck based on the Tango N4 1000 words book."
+          rating={5}
+          levels={['n4']}
+        />
+        <ResourceCard
+          title="JLPT Tango N3"
+          url="#"
+          description="Vocabulary deck based on the Tango N3 1000 words book."
+          rating={5}
+          levels={['n3']}
+        />
+        <ResourceCard
+          title="Kanji N5-N4"
+          url="#"
+          description="Comprehensive kanji deck with readings and example words."
+          rating={4}
+          levels={['n5', 'n4']}
+        />
+        <ResourceCard
+          title="Kanji N3-N2"
+          url="#"
+          description="Advanced kanji deck focusing on intermediate characters."
+          rating={4}
+          levels={['n3', 'n2']}
+        />
+        <ResourceCard
+          title="Core 2000/6000"
+          url="#"
+          description="Essential vocabulary series for practical Japanese."
+          rating={5}
+          levels={['n4', 'n3', 'n2']}
+        />
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8 mt-12">Apps & Tools</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ResourceCard
+          title="Anki"
+          url="https://apps.ankiweb.net/"
+          description="Spaced repetition app for efficient memorization."
+          rating={5}
+          free={true}
+        />
+        <ResourceCard
+          title="WaniKani"
+          url="https://www.wanikani.com/"
+          description="Kanji and vocabulary learning with mnemonics."
+          rating={5}
+        />
+        <ResourceCard
+          title="HelloTalk"
+          url="https://www.hellotalk.com/"
+          description="Language exchange app to practice with native speakers."
+          rating={4}
+          free={true}
+        />
+        <ResourceCard
+          title="Takoboto"
+          url="#"
+          description="Offline Japanese-English dictionary with flashcards."
+          rating={4}
+          free={true}
+        />
+        <ResourceCard
+          title="Kanji Study"
+          url="#"
+          description="Kanji learning app with stroke order and quizzes."
+          rating={4}
+        />
+        <ResourceCard
+          title="Migii JLPT"
+          url="#"
+          description="JLPT practice tests and exercises app."
+          rating={4}
+          free={true}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

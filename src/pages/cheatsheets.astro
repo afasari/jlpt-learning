@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const cheatsheets = await getCollection('cheatsheets');
+const cheatsheetsByLevel = cheatsheets.reduce((acc, sheet) => {
+  if (!acc[sheet.data.level]) acc[sheet.data.level] = [];
+  acc[sheet.data.level].push(sheet);
+  return acc;
+}, {} as Record<string, typeof cheatsheets>);
+---
+
+<Layout title="JLPT Cheatsheets - Quick Reference Guides">
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">JLPT Cheatsheets</h1>
+      <p class="text-xl text-blue-100">Quick reference guides for fast review</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">Hiragana & Katakana</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Hiragana Chart</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr>
+                  <th class="border px-2 py-1">a</th>
+                  <th class="border px-2 py-1">i</th>
+                  <th class="border px-2 py-1">u</th>
+                  <th class="border px-2 py-1">e</th>
+                  <th class="border px-2 py-1">o</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border px-2 py-1">あ</td>
+                  <td class="border px-2 py-1">い</td>
+                  <td class="border px-2 py-1">う</td>
+                  <td class="border px-2 py-1">え</td>
+                  <td class="border px-2 py-1">お</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">か</td>
+                  <td class="border px-2 py-1">き</td>
+                  <td class="border px-2 py-1">く</td>
+                  <td class="border px-2 py-1">け</td>
+                  <td class="border px-2 py-1">こ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">さ</td>
+                  <td class="border px-2 py-1">し</td>
+                  <td class="border px-2 py-1">す</td>
+                  <td class="border px-2 py-1">せ</td>
+                  <td class="border px-2 py-1">そ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">た</td>
+                  <td class="border px-2 py-1">ち</td>
+                  <td class="border px-2 py-1">つ</td>
+                  <td class="border px-2 py-1">て</td>
+                  <td class="border px-2 py-1">と</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">な</td>
+                  <td class="border px-2 py-1">に</td>
+                  <td class="border px-2 py-1">ぬ</td>
+                  <td class="border px-2 py-1">ね</td>
+                  <td class="border px-2 py-1">の</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">は</td>
+                  <td class="border px-2 py-1">ひ</td>
+                  <td class="border px-2 py-1">ふ</td>
+                  <td class="border px-2 py-1">へ</td>
+                  <td class="border px-2 py-1">ほ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ま</td>
+                  <td class="border px-2 py-1">み</td>
+                  <td class="border px-2 py-1">む</td>
+                  <td class="border px-2 py-1">め</td>
+                  <td class="border px-2 py-1">も</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">や</td>
+                  <td class="border px-2 py-1">ゆ</td>
+                  <td class="border px-2 py-1">よ</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ら</td>
+                  <td class="border px-2 py-1">り</td>
+                  <td class="border px-2 py-1">る</td>
+                  <td class="border px-2 py-1">れ</td>
+                  <td class="border px-2 py-1">ろ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">わ</td>
+                  <td class="border px-2 py-1">を</td>
+                  <td class="border px-2 py-1">ん</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Katakana Chart</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr>
+                  <th class="border px-2 py-1">a</th>
+                  <th class="border px-2 py-1">i</th>
+                  <th class="border px-2 py-1">u</th>
+                  <th class="border px-2 py-1">e</th>
+                  <th class="border px-2 py-1">o</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border px-2 py-1">ア</td>
+                  <td class="border px-2 py-1">イ</td>
+                  <td class="border px-2 py-1">ウ</td>
+                  <td class="border px-2 py-1">エ</td>
+                  <td class="border px-2 py-1">オ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">カ</td>
+                  <td class="border px-2 py-1">キ</td>
+                  <td class="border px-2 py-1">ク</td>
+                  <td class="border px-2 py-1">ケ</td>
+                  <td class="border px-2 py-1">コ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">サ</td>
+                  <td class="border px-2 py-1">シ</td>
+                  <td class="border px-2 py-1">ス</td>
+                  <td class="border px-2 py-1">セ</td>
+                  <td class="border px-2 py-1">ソ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">タ</td>
+                  <td class="border px-2 py-1">チ</td>
+                  <td class="border px-2 py-1">ツ</td>
+                  <td class="border px-2 py-1">テ</td>
+                  <td class="border px-2 py-1">ト</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ナ</td>
+                  <td class="border px-2 py-1">ニ</td>
+                  <td class="border px-2 py-1">ヌ</td>
+                  <td class="border px-2 py-1">ネ</td>
+                  <td class="border px-2 py-1">ノ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ハ</td>
+                  <td class="border px-2 py-1">ヒ</td>
+                  <td class="border px-2 py-1">フ</td>
+                  <td class="border px-2 py-1">ヘ</td>
+                  <td class="border px-2 py-1">ホ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">マ</td>
+                  <td class="border px-2 py-1">ミ</td>
+                  <td class="border px-2 py-1">ム</td>
+                  <td class="border px-2 py-1">メ</td>
+                  <td class="border px-2 py-1">モ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ヤ</td>
+                  <td class="border px-2 py-1">ユ</td>
+                  <td class="border px-2 py-1">ヨ</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ラ</td>
+                  <td class="border px-2 py-1">リ</td>
+                  <td class="border px-2 py-1">ル</td>
+                  <td class="border px-2 py-1">レ</td>
+                  <td class="border px-2 py-1">ロ</td>
+                </tr>
+                <tr>
+                  <td class="border px-2 py-1">ワ</td>
+                  <td class="border px-2 py-1">ヲ</td>
+                  <td class="border px-2 py-1">ン</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Basic Particles</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">は (wa)</h4>
+            <p class="text-gray-600">Topic marker: "As for X..."</p>
+            <p class="text-sm text-gray-500 mt-1">私は学生です</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">が (ga)</h4>
+            <p class="text-gray-600">Subject marker / Emphasis</p>
+            <p class="text-sm text-gray-500 mt-1">私が学生です</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">を (o)</h4>
+            <p class="text-gray-600">Direct object marker</p>
+            <p class="text-sm text-gray-500 mt-1">りんごを食べる</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">に (ni)</h4>
+            <p class="text-gray-600">Direction / Time / Indirect object</p>
+            <p class="text-sm text-gray-500 mt-1">学校に行く</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">で (de)</h4>
+            <p class="text-gray-600">Location / Means</p>
+            <p class="text-sm text-gray-500 mt-1">電車で行く</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">へ (e)</h4>
+            <p class="text-gray-600">Direction marker</p>
+            <p class="text-sm text-gray-500 mt-1">東京へ行く</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">と (to)</h4>
+            <p class="text-gray-600">And / With</p>
+            <p class="text-sm text-gray-500 mt-1">友達と行く</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">も (mo)</h4>
+            <p class="text-gray-600">Also / Too</p>
+            <p class="text-sm text-gray-500 mt-1">私も行きます</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h4 class="font-bold text-lg">の (no)</h4>
+            <p class="text-gray-600">Possessive / Noun modifier</p>
+            <p class="text-sm text-gray-500 mt-1">私の本</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Verb Conjugation Summary</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+        <h3 class="font-bold text-lg mb-4">Present & Past (Group 1 - Godan)</h3>
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="border px-3 py-2 text-left">Dictionary</th>
+              <th class="border px-3 py-2 text-left">Present Affirmative</th>
+              <th class="border px-3 py-2 text-left">Present Negative</th>
+              <th class="border px-3 py-2 text-left">Past Affirmative</th>
+              <th class="border px-3 py-2 text-left">Past Negative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-3 py-2">かく (kaku)</td>
+              <td class="border px-3 py-2">かきます (kakimasu)</td>
+              <td class="border px-3 py-2">かきません (kakimasen)</td>
+              <td class="border px-3 py-2">かきました (kakimashita)</td>
+              <td class="border px-3 py-2">かきませんでした (kakimasen deshita)</td>
+            </tr>
+            <tr>
+              <td class="border px-3 py-2">よむ (yomu)</td>
+              <td class="border px-3 py-2">よみます (yomimasu)</td>
+              <td class="border px-3 py-2">よみません (yomimasen)</td>
+              <td class="border px-3 py-2">よみました (yomimashita)</td>
+              <td class="border px-3 py-2">よみませんでした (yomimasen deshita)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="font-bold text-lg mt-6 mb-4">Present & Past (Group 2 - Ichidan)</h3>
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="border px-3 py-2 text-left">Dictionary</th>
+              <th class="border px-3 py-2 text-left">Present Affirmative</th>
+              <th class="border px-3 py-2 text-left">Present Negative</th>
+              <th class="border px-3 py-2 text-left">Past Affirmative</th>
+              <th class="border px-3 py-2 text-left">Past Negative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-3 py-2">たべる (taberu)</td>
+              <td class="border px-3 py-2">たべます (tabemasu)</td>
+              <td class="border px-3 py-2">たべません (tabemasen)</td>
+              <td class="border px-3 py-2">たべました (tabemashita)</td>
+              <td class="border px-3 py-2">たべませんでした (tabemasen deshita)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="font-bold text-lg mt-6 mb-4">Present & Past (Irregular)</h3>
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="border px-3 py-2 text-left">Dictionary</th>
+              <th class="border px-3 py-2 text-left">Present Affirmative</th>
+              <th class="border px-3 py-2 text-left">Present Negative</th>
+              <th class="border px-3 py-2 text-left">Past Affirmative</th>
+              <th class="border px-3 py-2 text-left">Past Negative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-3 py-2">する (suru)</td>
+              <td class="border px-3 py-2">します (shimasu)</td>
+              <td class="border px-3 py-2">しません (shimasen)</td>
+              <td class="border px-3 py-2">しました (shimashita)</td>
+              <td class="border px-3 py-2">しませんでした (shimasen deshita)</td>
+            </tr>
+            <tr>
+              <td class="border px-3 py-2">くる (kuru)</td>
+              <td class="border px-3 py-2">きます (kimasu)</td>
+              <td class="border px-3 py-2">きません (kimasen)</td>
+              <td class="border px-3 py-2">きました (kimashita)</td>
+              <td class="border px-3 py-2">きませんでした (kimasen deshita)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-8">Number and Counters</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="border px-3 py-2 text-left">Number</th>
+              <th class="border px-3 py-2 text-left">Kanji</th>
+              <th class="border px-3 py-2 text-left">Reading</th>
+              <th class="border px-3 py-2 text-left">With Counter (tsu)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="border px-3 py-2">1</td><td class="border px-3 py-2">一</td><td class="border px-3 py-2">ichi</td><td class="border px-3 py-2">hitotsu</td></tr>
+            <tr><td class="border px-3 py-2">2</td><td class="border px-3 py-2">二</td><td class="border px-3 py-2">ni</td><td class="border px-3 py-2">futatsu</td></tr>
+            <tr><td class="border px-3 py-2">3</td><td class="border px-3 py-2">三</td><td class="border px-3 py-2">san</td><td class="border px-3 py-2">mittsu</td></tr>
+            <tr><td class="border px-3 py-2">4</td><td class="border px-3 py-2">四</td><td class="border px-3 py-2">yon</td><td class="border px-3 py-2">yottsu</td></tr>
+            <tr><td class="border px-3 py-2">5</td><td class="border px-3 py-2">五</td><td class="border px-3 py-2">go</td><td class="border px-3 py-2">itsutsu</td></tr>
+            <tr><td class="border px-3 py-2">6</td><td class="border px-3 py-2">六</td><td class="border px-3 py-2">roku</td><td class="border px-3 py-2">muttsu</td></tr>
+            <tr><td class="border px-3 py-2">7</td><td class="border px-3 py-2">七</td><td class="border px-3 py-2">nana</td><td class="border px-3 py-2">nanatsu</td></tr>
+            <tr><td class="border px-3 py-2">8</td><td class="border px-3 py-2">八</td><td class="border px-3 py-2">hachi</td><td class="border px-3 py-2">yattsu</td></tr>
+            <tr><td class="border px-3 py-2">9</td><td class="border px-3 py-2">九</td><td class="border px-3 py-2">kyuu</td><td class="border px-3 py-2">kokonotsu</td></tr>
+            <tr><td class="border px-3 py-2">10</td><td class="border px-3 py-2">十</td><td class="border px-3 py-2">juu</td><td class="border px-3 py-2">too</td></tr>
+            <tr><td class="border px-3 py-2">100</td><td class="border px-3 py-2">百</td><td class="border px-3 py-2">hyaku</td><td class="border px-3 py-2">-</td></tr>
+            <tr><td class="border px-3 py-2">1000</td><td class="border px-3 py-2">千</td><td class="border px-3 py-2">sen</td><td class="border px-3 py-2">-</td></tr>
+            <tr><td class="border px-3 py-2">10000</td><td class="border px-3 py-2">一万</td><td class="border px-3 py-2">ichiman</td><td class="border px-3 py-2">-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Layout>

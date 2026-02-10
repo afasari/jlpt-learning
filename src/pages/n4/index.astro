@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const level = 'N4';
+const levelColor = 'yellow';
+const description = 'Elementary - Basic conversations and everyday expressions';
+---
+
+<Layout title={`JLPT ${level} - Complete Study Guide`}>
+  <section class={`bg-${levelColor}-50 py-12`}>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-4">
+        <span class={`bg-${levelColor}-500 text-white px-4 py-2 rounded-lg text-2xl font-bold`}>{level}</span>
+        <div>
+          <h1 class="text-4xl font-bold text-gray-900">{level} Level</h1>
+          <p class={`text-${levelColor}-700`}>{description}</p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        <a href={`/${level.toLowerCase()}/vocabulary`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-blue-200 text-blue-700">
+          Vocabulary 📚
+        </a>
+        <a href={`/${level.toLowerCase()}/kanji`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-red-200 text-red-700">
+          Kanji 漢字
+        </a>
+        <a href={`/${level.toLowerCase()}/grammar`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-green-200 text-green-700">
+          Grammar 📝
+        </a>
+        <a href={`/${level.toLowerCase()}/tips`} class="bg-white px-4 py-2 rounded-lg shadow hover:shadow-md transition-shadow border border-purple-200 text-purple-700">
+          Study Tips 💡
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">What You'll Learn at {level}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-blue-700 mb-4">Vocabulary</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• 1,500 words approximately</li>
+            <li>• Basic everyday expressions</li>
+            <li>• Common phrases and greetings</li>
+            <li>• Essential adjectives and verbs</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-red-700 mb-4">Kanji</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• 300 kanji characters</li>
+            <li>• Basic kanji for daily life</li>
+            <li>• On-yomi and kun-yomi readings</li>
+            <li>• Common kanji compounds</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-green-700 mb-4">Grammar</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Basic sentence structures</li>
+            <li>• Essential particles and connectors</li>
+            <li>• Verb conjugations</li>
+            <li>• Common grammatical patterns</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-purple-700 mb-4">Reading & Listening</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Simple passages on familiar topics</li>
+            <li>• Basic dialogs and conversations</li>
+            <li>• Short texts and notices</li>
+            <li>• Everyday listening comprehension</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">Recommended Study Path</h2>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+            <div>
+              <h3 class="font-bold text-lg">Master Vocabulary First</h3>
+              <p class="text-gray-600">Start with the most common words. Use spaced repetition (Anki) for efficient memorization.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+            <div>
+              <h3 class="font-bold text-lg">Learn Kanji with Words</h3>
+              <p class="text-gray-600">Study kanji in context, not in isolation. Learn words that use each kanji character.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+            <div>
+              <h3 class="font-bold text-lg">Practice Grammar Patterns</h3>
+              <p class="text-gray-600">Understand the patterns and usage. Practice with example sentences and real contexts.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-purple-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+            <div>
+              <h3 class="font-bold text-lg">Apply to Reading & Listening</h3>
+              <p class="text-gray-600">Practice with graded readers, easy news, and listening exercises.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8">Test-Taking Tips for {level}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          { title: 'Time Management', desc: 'Practice completing each section within the time limit. Don\'t spend too long on one question.' },
+          { title: 'Eliminate Wrong Answers', desc: 'Use the process of elimination to improve your chances of guessing correctly.' },
+          { title: 'Answer All Questions', desc: 'There is no penalty for wrong answers, so answer every question.' },
+          { title: 'Practice with Past Tests', desc: 'Take actual JLPT practice tests to get familiar with the format and difficulty.' },
+        ].map((tip) => (
+          <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+            <h3 class="font-bold text-lg mb-2">{tip.title}</h3>
+            <p class="text-gray-600">{tip.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

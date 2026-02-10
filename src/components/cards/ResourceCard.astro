@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  url?: string;
+  description: string;
+  rating?: number;
+  levels?: string[];
+  free?: boolean;
+}
+
+const { title, url, description, rating, levels, free } = Astro.props;
+
+const ratingStars = rating
+  ? Array(5).fill(0).map((_, i) => i < rating ? '★' : '☆').join('')
+  : '';
+---
+
+<div class="bg-white rounded-lg shadow-md p-4 border border-gray-100 hover:shadow-lg transition-shadow">
+  <div class="flex items-start justify-between mb-2">
+    <h3 class="text-lg font-bold text-gray-900">
+      {url ? (
+        <a href={url} class="hover:text-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">
+          {title} ↗
+        </a>
+      ) : (
+        title
+      )}
+    </h3>
+    <div class="flex gap-1">
+      {free && <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">FREE</span>}
+      {rating && <span class="text-yellow-500 text-sm">{ratingStars}</span>}
+    </div>
+  </div>
+
+  <p class="text-gray-600 text-sm mb-3">{description}</p>
+
+  {levels && levels.length > 0 && (
+    <div class="flex flex-wrap gap-1">
+      {levels.map((level) => (
+        <span class={`text-xs px-2 py-1 rounded font-bold ${
+          level === 'n5' ? 'bg-green-100 text-green-800' :
+          level === 'n4' ? 'bg-yellow-100 text-yellow-800' :
+          level === 'n3' ? 'bg-orange-100 text-orange-800' :
+          level === 'n2' ? 'bg-red-100 text-red-800' :
+          'bg-purple-100 text-purple-800'
+        }`}>
+          {level.toUpperCase()}
+        </span>
+      ))}
+    </div>
+  )}
+</div>

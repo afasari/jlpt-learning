@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allTips = await getCollection('tips');
+const n4Tips = allTips.filter(t => t.data.level?.includes('n4'));
+---
+
+<Layout title="JLPT N4 Study Tips - Strategies for Success">
+  <section class="bg-purple-50 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <a href="/n4" class="text-purple-600 hover:text-purple-800">N4</a>
+        <span class="text-gray-400">/</span>
+        <span class="text-gray-700 font-semibold">Study Tips</span>
+      </div>
+      <h1 class="text-3xl font-bold mt-4 text-gray-900">N4 Study Tips</h1>
+      <p class="text-gray-600 mt-2">Strategies and tips for passing the JLPT N4</p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+        {n4Tips.map((tip) => (
+          <article class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">{tip.data.title}</h2>
+            <p class="text-sm text-purple-600 mb-4">{tip.data.category}</p>
+            <div class="prose max-w-none text-gray-700">
+              <div set:html={tip.body} />
+            </div>
+          </article>
+        ))}
+
+        {n4Tips.length === 0 && (
+          <div class="text-center py-12">
+            <p class="text-gray-500 text-lg mb-6">Tips for N4 coming soon!</p>
+            <a href="/tips" class="inline-block bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+              View General Tips
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Layout>
