@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ResourceCard from '../components/cards/ResourceCard.astro';
+import SmartLink from '../components/SmartLink.astro';
 import { getCollection } from 'astro:content';
 
 const books = await getCollection('books');

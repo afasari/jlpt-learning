@@ -1,4 +1,6 @@
 ---
+import SmartLink from '../SmartLink.astro';
+
 interface Props {
   title: string;
   url?: string;
@@ -19,9 +21,9 @@ const ratingStars = rating
   <div class="flex items-start justify-between mb-2">
     <h3 class="text-lg font-bold text-gray-900">
       {url ? (
-        <a href={url} class="hover:text-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">
+        <SmartLink href={url} class="hover:text-blue-600 transition-colors">
           {title} ↗
-        </a>
+        </SmartLink>
       ) : (
         title
       )}
@@ -37,7 +39,7 @@ const ratingStars = rating
   {levels && levels.length > 0 && (
     <div class="flex flex-wrap gap-1">
       {levels.map((level) => (
-        <span class={`text-xs px-2 py-1 rounded font-bold ${
+        <SmartLink href={`/${level}`} class={`text-xs px-2 py-1 rounded font-bold ${
           level === 'n5' ? 'bg-green-100 text-green-800' :
           level === 'n4' ? 'bg-yellow-100 text-yellow-800' :
           level === 'n3' ? 'bg-orange-100 text-orange-800' :
@@ -45,7 +47,7 @@ const ratingStars = rating
           'bg-purple-100 text-purple-800'
         }`}>
           {level.toUpperCase()}
-        </span>
+        </SmartLink>
       ))}
     </div>
   )}

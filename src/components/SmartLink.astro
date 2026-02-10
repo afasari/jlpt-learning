@@ -5,10 +5,24 @@ interface Props {
 }
 
 const { href, ...props } = Astro.props;
+
+// Get base path
 const basePath = import.meta.env.BASE_URL || '/jlpt-learning';
-const fullHref = href.startsWith('http') ? href : `${basePath}${href}`;
+const normalizedBase = basePath.replace(/\/$/, '') + '/';
+
+// Calculate full href
+let fullHref: string;
+if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')) {
+  fullHref = href;
+} else if (href.startsWith('/')) {
+  fullHref = `${normalizedBase}${href.substring(1)}`;
+} else {
+  fullHref = `${normalizedBase}${href}`;
+}
 ---
 
 <a href={fullHref} {...props}>
   <slot />
 </a>
+
+
